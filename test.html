@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分页实现</title>
+<style>
+.content{
+
+}
+.content ul li{
+	list-style: none;  /*li去点*/
+	float: left;
+	border: 1px black solid;
+	text-align: center;
+	margin-left: 1rem;
+	padding: 0.3rem;
+}
+.content ul li:hover{
+	list-style: none;  /*li去点*/
+	float: left;
+	border: 1px black solid;
+	text-align: center;
+	margin-left: 1rem;
+	padding: 0.3rem;
+	background: green;
+}
+.content ul li a{
+	text-decoration: none;  /*链接去下滑线*/
+	color: black;
+}
+</style>
+</head>
+<body>
+	<div class="content" id="content">
+		<ul>
+			<li class="firstPage" id="firstPage">首页</li>
+			<li class="prePage" id="prePage">上一页</li>
+				<span class="nowPage">
+					<li class="btnPage" style="background:blue;"><a href="#" class="btny">1</a></li>
+					<li class="btnPage"><a href="#" class="btny">2</a></li>
+					<li class="btnPage"><a href="#" class="btny">3</a></li>
+					<li class="btnPage"><a href="#" class="btny">4</a></li>
+					<li class="btnPage"><a href="#" class="btny">5</a></li>
+				</span>
+			<li class="nextPage" id="nextPage">下一页</li>
+			<li class="lastPage" id="lastPage">末页</li>
+		</ul>
+	</div>
+<script>
+var $ = function(a){return document.getElementById(a);};
+var	$$ = function(a){return document.getElementsByClassName(a);};
+var initnum = 1,
+	npage = $('nextPage'), //下一页
+	lpage = $('lastPage'),//最后一页 
+	fpage = $('firstPage'), //首页
+	ppage = $('prePage'),//上一页
+	bpage = $$('btnPage'),//分页数字区
+	bp = $$('btny'),//页码
+	con = $('content');  //整个分页
+
+con.addEventListener('click',function(ev){
+	var event = ev;  //事件传入
+	var tar = event.target; //获取事件源
+	console.log(tar);
+	if(tar.className.toLowerCase()=='nextpage'){
+		// console.log(123);
+		// console.log(npage);
+		if(initnum===5){
+			initnum=0;
+			for(var i=0;i<5;i++){
+				bp[i].innerHTML = parseInt(bp[i].innerHTML)+5;
+			}
+			bpage[4].style.background = 'white';
+		}
+		bpage[initnum].style.background = 'blue';
+		if(initnum>=1){
+			bpage[initnum-1].style.background = 'white';
+		}		
+		initnum++;
+	}
+	if(tar.className.toLowerCase()=='prepage'){
+		initnum--;
+		if(initnum===-1){
+			initnum=4;
+			if(parseInt(bp[0].innerHTML)>5){
+				for(var i=0;i<5;i++){
+				bp[i].innerHTML = parseInt(bp[i].innerHTML)-5;
+			}
+		}			
+			bpage[0].style.background = 'white';
+		}
+		bpage[initnum].style.background = 'blue';
+		if(initnum<=3){
+			bpage[initnum+1].style.background = 'white';
+		}			
+	}
+	if(tar.className.toLowerCase()=='firstpage'){
+		initnum=0;
+		for(var i=0;i<5;i++){
+			bpage[i].style.background = 'white';
+			bp[i].innerHTML = i+1;
+		}
+		bpage[0].style.background = 'blue';
+	}
+});
+
+
+//分页的函数
+function showPage (){
+	var initnum = 1;
+
+
+}
+
+</script>
+</body>
+</html>
