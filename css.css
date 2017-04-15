@@ -1,0 +1,21 @@
+.page ul li{
+	list-style: none;  /*li去点*/
+	float: left;
+	border: 1px black solid;
+	text-align: center;
+	margin-left: 1rem;
+	padding: 0.3rem;
+}
+.page ul li:hover{
+	list-style: none;  /*li去点*/
+	float: left;
+	border: 1px black solid;
+	text-align: center;
+	margin-left: 1rem;
+	padding: 0.3rem;
+	background: green;
+}
+.page ul li a{
+	text-decoration: none;  /*链接去下滑线*/
+	color: black;
+}

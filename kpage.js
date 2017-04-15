@@ -1,41 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>分页实现</title>
-<style>
-.page ul li{
-	list-style: none;  /*li去点*/
-	float: left;
-	border: 1px black solid;
-	text-align: center;
-	margin-left: 1rem;
-	padding: 0.3rem;
-}
-.page ul li:hover{
-	list-style: none;  /*li去点*/
-	float: left;
-	border: 1px black solid;
-	text-align: center;
-	margin-left: 1rem;
-	padding: 0.3rem;
-	background: green;
-}
-.page ul li a{
-	text-decoration: none;  /*链接去下滑线*/
-	color: black;
-}
-</style>
-</head>
-<body>
-	<div class="page">
-		
-	</div>
-<script>
-init({
-	setNum:8
-});
-//init 
 function init(options){
 var $ = function(a){return document.getElementById(a);};
 var	$$ = function(a){return document.getElementsByClassName(a);};
@@ -121,6 +83,3 @@ function clearandcolor (){ //清楚所有页码的选中状态
 		}
 }
 }
-</script>
-</body>
-</html>
